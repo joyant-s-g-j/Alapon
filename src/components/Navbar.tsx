@@ -15,7 +15,7 @@ const Navbar = () => {
           alt='Alapon Logo'
           className='max-sm:size-10'
         />
-        <p className='text-[26px] font-extrabold text-white max-sm:hidden'>Alapon</p>
+        <p className='text-[26px] font-extrabold text-white max-sm:hidden tracking-extra-widest uppercase'>Alapon</p>
       </Link>
 
       <div className='flex-between gap-5'>

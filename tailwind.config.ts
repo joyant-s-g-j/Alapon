@@ -70,6 +70,9 @@ const config: Config = {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
+		letterSpacing: {
+			'extra-widest': '0.25em', 
+		},
 		backgroundImage: {
 			hero: "url('/images/hero-background.png')"
 		},
