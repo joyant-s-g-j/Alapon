@@ -24,7 +24,7 @@ const HomeCard = ({img, title, description, handleClick, className}: HomeCardPro
         </div>
         <div className='flex flex-col gap-1'>
             <h1 className='text-2xl font-bold'>{title}</h1>
-            <p className='text-lg font-normal'>Start an instant meeting</p>
+            <p className='text-lg font-normal'>{description}</p>
         </div>
     </div>
   )
