@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { CallParticipantsList, PaginatedGridLayout, SpeakerLayout } from '@stream-io/video-react-sdk'
+import { CallControls, CallParticipantsList, PaginatedGridLayout, SpeakerLayout } from '@stream-io/video-react-sdk'
 import React, { useState } from 'react'
 
 type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right'
@@ -26,6 +26,9 @@ const MeetingRoom = () => {
         <div className={cn('h-[calc(100vh-86px)] hidden ml-2', {'show-block': showParticipants})}>
           <CallParticipantsList onClose={() => setShowParticipants(false)} />
         </div>
+      </div>
+      <div className='fixed bottom-0 flex w-full items-center justify-center gap-5'>
+        <CallControls />
       </div>
     </section>
   )
