@@ -1,5 +1,10 @@
 'use client'
+import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
+import { useGetCallById } from '@/hooks/useGetCallById';
 import { useUser } from '@clerk/nextjs'
+import { useStreamVideoClient } from '@stream-io/video-react-sdk';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 const Table = ({ title, description }: {title: string; description: string}) => {
@@ -12,7 +17,26 @@ const Table = ({ title, description }: {title: string; description: string}) => 
 const PersonalRoom = () => {
   const { user } = useUser()
   const meetingId = user?.id
+  const { toast } = useToast()
+  const { call } = useGetCallById(meetingId!)
+  const client = useStreamVideoClient()
+  const router = useRouter()
   const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?personal=true`
+
+  const startRoom = async () => {
+    if(!client || !user) return
+
+    if (!call) {
+      const newCall = client.call('default', meetingId!)
+      await newCall.getOrCreate({
+        data: {
+            starts_at: new Date().toISOString(),
+        }
+      }) 
+    }
+
+    router.push(`/meeting/${meetingId}?personal=true`)
+  }
   return (
     <section className='flex size-full flex-col gap-10 text-white'>
       <h1 className='text-3xl font-bold'>Personal Room</h1>
@@ -20,6 +44,20 @@ const PersonalRoom = () => {
         <Table title="Topic" description={`${user?.username}'s meeting room`} />
         <Table title="Meeting ID" description={`${meetingId!}`} />
         <Table title="Invite Link" description={`${meetingLink}`} />
+      </div>
+      <div className='flex gap-5'>
+        <Button className='bg-blue-1 hover:bg-blue-700 rounded' onClick={startRoom}>
+          Start Meeting
+        </Button>
+        <Button className='bg-dark-3 hover:bg-dark-1 rounded' onClick={() => {
+          navigator.clipboard.writeText(meetingLink)
+          toast({
+            title: "Link Copied",
+            className:'text-white bg-dark-3'
+          })
+        }}>
+          Copy Invitation
+        </Button>
       </div>
     </section>
   )
