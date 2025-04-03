@@ -54,7 +54,7 @@ const MeetingCard = ({ icon, title, date, isPreviousMeeting, buttonIcon1, handle
         </div>
         {!isPreviousMeeting && (
           <div className='flex gap-2'>
-            <Button onClick={handleClick} className='rounded bg-blue-1 px-6'>
+            <Button onClick={handleClick} className='rounded bg-blue-1 px-6 hover:bg-blue-700'>
               {buttonIcon1 && (
                 <Image 
                   src={buttonIcon1} 
@@ -69,10 +69,11 @@ const MeetingCard = ({ icon, title, date, isPreviousMeeting, buttonIcon1, handle
               onClick={() => {
                 navigator.clipboard.writeText(link)
                 toast({
-                  title: "Link Copied"
+                  title: "Link Copied",
+                  className:'text-white bg-dark-3'
                 })
               }}
-              className='bg-dark-4 px-6'
+              className='bg-dark-3 px-6 hover:bg-dark-4'
             >
               <Image 
                 src="/icons/copy.svg"

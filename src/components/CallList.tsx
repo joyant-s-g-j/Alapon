@@ -49,13 +49,13 @@ const CallList = ({type}: {type: 'ended' | 'upcoming' | 'recordings'}) => {
           icon={
             type === 'ended' ? '/icons/previous.svg' : type === 'upcoming' ? '/icons/upcoming.svg' : '/icons/recordings.svg'
           }
-          title={(meeting as Call).state.custom.description.substing(0, 20) || 'No Description'}
-          date={(meeting as Call).state.startsAt?.toLocaleString() || meeting.start_time.toLocaleString()}
+          title={(meeting as Call).state.custom.description.substring(0, 20) || 'No Description'}
+          date={(meeting as Call).state.startsAt?.toLocaleString() || (meeting as CallRecording)?.start_time?.toLocaleString() || 'No Date'}
           isPreviousMeeting={type==='ended'}
           buttonIcon1={type === 'recordings' ? '/icons/play.svg' : undefined}
           buttonText={type === 'recordings' ? 'Play' : 'Start'}
-          handleClick={type == 'recordings' ? () => router.push(`${meeting.url}`) : () => router.push(`/meeting/${meeting.id}`)}
-          link={type === 'recordings' ? meeting.url : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meeting.id}`}
+          handleClick={type == 'recordings' ? () => router.push(`${(meeting as CallRecording).url}`) : () => router.push(`/meeting/${(meeting as Call).id}`)}
+          link={type === 'recordings' ? (meeting as CallRecording).url : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${(meeting as Call).id}`}
         />
       )): (
         <h1>{noCallsMessage}</h1>
