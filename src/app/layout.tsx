@@ -20,7 +20,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "ALAPON",
-  description: "Meeting App",
+  description: "Meeting Web Application",
   icons: {
     icon: '/icons/logo.svg'
   }
