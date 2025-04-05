@@ -3,7 +3,7 @@
 🚀 **Alapon** is a feature-rich **meeting web application** where users can **sign up, sign in, create instant or scheduled meetings, join meetings, record sessions, and access recordings later**. Users can also create a **personal meeting room** and **share it** with others. Built with **Next.js, React, Clerk, Stream, Tailwind CSS, and ShadCN**, Alapon provides a seamless experience for virtual collaboration with a clean and responsive UI.
 
 ### 🔗 Live Demo  
-Check out the live version here: **[Alapon Live](https://alapon-virid.vercel.app/)**  
+Check out the live version here: **[Alapon Live](https://alaponmeeting.vercel.app/)**  
 
 ## ✨ Features  
 📝 **Authentication** – Secure sign-in and sign-up using Clerk.  
