@@ -50,7 +50,7 @@ const CallList = ({type}: {type: 'ended' | 'upcoming' | 'recordings'}) => {
         
         setRecordings(recordings)
       } catch (error) {
-        toast({ title: 'try again later' })
+        toast({ title: 'try again later', className: 'text-white bg-dark-3' })
       }
     }
     if(type === 'recordings') fetchRecordings()

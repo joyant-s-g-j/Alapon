@@ -57,7 +57,7 @@ const MeetingTypeList = () => {
         toast({title: "Meeting Created"})
     } catch (error) {
         console.log(error)
-        toast({title: "Failed to create meeting"})
+        toast({title: "Failed to create meeting", className: 'text-white bg-dark-3'})
     }
   }
 
