@@ -24,7 +24,7 @@ Check out the live version here: **[Alapon Live](https://alaponmeeting.vercel.ap
 - **Frontend**: Next.js (App Router), React, ShadCN  
 - **Authentication**: Clerk  
 - **Meeting SDK**: Stream  
-- **Styling**: Tailwind CSS, ShadCN (Supports Dark and Light Mode)  
+- **Styling**: Tailwind CSS, ShadCN
 
 ## 🤝 Contributing  
 Pull requests and issue submissions are welcome to enhance Alapon!
